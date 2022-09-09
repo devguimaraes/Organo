@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/no-array-index-key */
 import { useState } from 'react';
@@ -218,6 +219,10 @@ function App() {
 
 	const [colaboradores, setColaboradores] = useState(inicial);
 
+
+
+
+
 	return (
 		<div>
 			<Banner />
@@ -236,6 +241,7 @@ function App() {
 						colaboradores={colaboradores.filter(
 							(colaborador) => colaborador.time === time.nome
 						)}
+
 					/>
 				))}
 			</section>

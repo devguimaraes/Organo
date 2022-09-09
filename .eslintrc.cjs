@@ -32,5 +32,7 @@ module.exports = {
     'no-console': 'off',
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': ['off'],
+
+
   },
 };
