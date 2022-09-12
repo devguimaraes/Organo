@@ -6,11 +6,15 @@ import CampoTexto from '../CampoTexto';
 import ListaSuspensa from '../ListaSuspensa';
 import './formulario.css';
 
-const Formulario = ({ aoCadastrar, times }) => {
+const Formulario = ({ aoCadastrar, times, CadastrarTime }) => {
 	const [nome, setNome] = useState('');
 	const [cargo, setCargo] = useState('');
 	const [imagem, setImagem] = useState('');
 	const [time, setTime] = useState('');
+	// novo time
+	const [nomeTime, setNomeTime] = useState('');
+	const [nomeCor, setCorTime] = useState('');
+	const [nomeCorSecundaria, setCorTimeSecundaria] = useState('');
 
 	const aoSubmeter = (evento) => {
 		evento.preventDefault();
@@ -54,6 +58,39 @@ const Formulario = ({ aoCadastrar, times }) => {
 					aoAlterado={(valor) => setTime(valor)}
 				/>
 				<Botao texto="Criar card" />
+			</form>
+			<form
+				className="formulario"
+				onSubmit={(evento) => {
+					evento.preventDefault();
+					console.log('time cadastrado');
+					CadastrarTime({ nomeTime, nomeCor, nomeCorSecundaria });
+				}}
+			>
+				<h2>Preencha os dados para criar um novo time</h2>
+				<CampoTexto
+					obrigatorio
+					label="Nome"
+					placeholder="Digite o nome de time "
+					valor={nomeTime}
+					aoAlterado={(valor) => setNomeTime(valor)}
+				/>
+				<CampoTexto
+					obrigatorio
+					label="Cor de Time"
+					placeholder="Digite a cor primaria"
+					valor={nomeCor}
+					aoAlterado={(valor) => setCorTime(valor)}
+				/>
+				<CampoTexto
+					obrigatorio
+					label="Cor Secundaria do Time"
+					placeholder="Digite a cor secundaria"
+					valor={nomeCorSecundaria}
+					aoAlterado={(valor) => setCorTimeSecundaria(valor)}
+				/>
+
+				<Botao texto="Criar novo Time" />
 			</form>
 		</section>
 	);

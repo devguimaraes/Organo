@@ -1,9 +1,11 @@
-import './botao.css'
+import './botao.css';
 
-function Botao({texto}) {
-    return <button type='button' className="botao">
-        {texto}
-    </button>
+function Botao({ texto }) {
+	return (
+		<button type="button" className="botao">
+			{texto}
+		</button>
+	);
 }
 
-export default Botao
+export default Botao;
