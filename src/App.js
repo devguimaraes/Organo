@@ -1,14 +1,16 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable react/no-array-index-key */
 import { useState } from 'react';
+import hexToRgba from 'hex-rgba'
 import Banner from './componentes/Banner';
 import Formulario from './componentes/Formulario';
 import Rodape from './componentes/Rodape';
 import Time from './componentes/Time';
 
 function App() {
-	const times = [
+	const [times, setTimes] = useState([
 		{
 			nome: 'Programação',
 			corPrimaria: '#D9F7E9',
@@ -44,7 +46,7 @@ function App() {
 			corPrimaria: '#FFEEDF',
 			corSecundaria: '#FF8A29',
 		},
-	];
+	]);
 
 	const inicial = [
 		{
@@ -219,9 +221,15 @@ function App() {
 
 	const [colaboradores, setColaboradores] = useState(inicial);
 
-
-
-
+	const mudarCorDoTime = function mudarCorDoTime(cor, nome) {
+		setTimes(times.map(time => {
+			if(time.nome === nome){
+				time.corSecundaria = cor
+				time.corPrimaria = hexToRgba(cor, 50)
+			}
+			return time;
+		}))
+	}
 
 	return (
 		<div>
@@ -236,6 +244,7 @@ function App() {
 				<h1>Minha organização</h1>
 				{times.map((time, indice) => (
 					<Time
+						mudarCor={mudarCorDoTime}
 						key={indice}
 						time={time}
 						colaboradores={colaboradores.filter(

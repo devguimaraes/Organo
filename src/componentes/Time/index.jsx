@@ -5,15 +5,20 @@ import { useEffect, useState } from 'react';
 import Colaborador from '../Colaborador';
 import './time.css';
 
-function Time({ time, colaboradores }) {
-	const [delUser, setDelUser] = useState([]);
+function Time({ time, colaboradores, mudarCor }) {
+	const [delUser, setDelUser] = useState(colaboradores);
 
 	useEffect(() => setDelUser(colaboradores));
 
 	const deletaUser = function deletaUser(param) {
-		delUser.splice(delUser.indexOf(param), 1);
+		const colaboradoDeletado = param;
+		const deletado = colaboradores.splice(
+			colaboradores.indexOf(colaboradoDeletado),
+			1
+		);
+		setDelUser(colaboradores);
 
-		console.log(delUser);
+		console.log(colaboradores, deletado);
 	};
 	return (
 		delUser.length > 0 && (
@@ -24,6 +29,12 @@ function Time({ time, colaboradores }) {
 					backgroundColor: time.corPrimaria,
 				}}
 			>
+				<input
+					value={time.corSecundaria}
+					type="color"
+					className="input-color"
+					onChange={(evento) => mudarCor(evento.target.value, time.nome)}
+				/>
 				<h3 style={{ borderColor: time.corSecundaria }}>{time.nome}</h3>
 				<div className="colaboradores">
 					{delUser.map((colaborador, indice) => (
@@ -32,7 +43,7 @@ function Time({ time, colaboradores }) {
 							key={indice}
 							colaborador={colaborador}
 							corDeFundo={time.corSecundaria}
-							aoDeletar={() => deletaUser(colaborador)}
+							aoDeletar={() => deletaUser(colaborador, indice)}
 						/>
 					))}
 				</div>
