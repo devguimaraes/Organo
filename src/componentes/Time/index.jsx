@@ -33,7 +33,7 @@ function Time({ time, colaboradores, mudarCor }) {
 					value={time.corSecundaria}
 					type="color"
 					className="input-color"
-					onChange={(evento) => mudarCor(evento.target.value, time.nome)}
+					onChange={(evento) => mudarCor(evento.target.value, time.id)}
 				/>
 				<h3 style={{ borderColor: time.corSecundaria }}>{time.nome}</h3>
 				<div className="colaboradores">
