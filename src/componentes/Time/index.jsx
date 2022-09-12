@@ -1,27 +1,21 @@
 /* eslint-disable react/jsx-no-bind */
 /* eslint-disable react/jsx-filename-extension */
 
-import { useEffect, useState } from 'react';
 import Colaborador from '../Colaborador';
 import './time.css';
 
 function Time({ time, colaboradores, mudarCor }) {
-	const [delUser, setDelUser] = useState(colaboradores);
-
-	useEffect(() => setDelUser(colaboradores));
-
 	const deletaUser = function deletaUser(param) {
-		const colaboradoDeletado = param;
-		const deletado = colaboradores.splice(
+		const colaboradoDeletado = [param];
+		/* const deletado = colaboradores.splice(
 			colaboradores.indexOf(colaboradoDeletado),
 			1
-		);
-		setDelUser(colaboradores);
+		); */
 
-		console.log(colaboradores, deletado);
+		console.log(colaboradoDeletado);
 	};
 	return (
-		delUser.length > 0 && (
+		colaboradores.length > 0 && (
 			<section
 				className="time"
 				style={{
@@ -37,13 +31,13 @@ function Time({ time, colaboradores, mudarCor }) {
 				/>
 				<h3 style={{ borderColor: time.corSecundaria }}>{time.nome}</h3>
 				<div className="colaboradores">
-					{delUser.map((colaborador, indice) => (
+					{colaboradores.map((colaborador, id) => (
 						<Colaborador
 							// eslint-disable-next-line react/no-array-index-key
-							key={indice}
+							key={id}
 							colaborador={colaborador}
 							corDeFundo={time.corSecundaria}
-							aoDeletar={() => deletaUser(colaborador, indice)}
+							aoDeletar={() => deletaUser(colaborador)}
 						/>
 					))}
 				</div>
