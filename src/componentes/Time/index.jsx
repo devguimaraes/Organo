@@ -4,7 +4,7 @@
 import Colaborador from '../Colaborador';
 import './time.css';
 
-function Time({ time, colaboradores, mudarCor, deletaUser }) {
+function Time({ time, colaboradores, mudarCor, deletaUser, aoFavoritar }) {
 	return (
 		colaboradores.length > 0 && (
 			<section
@@ -26,6 +26,7 @@ function Time({ time, colaboradores, mudarCor, deletaUser }) {
 						<Colaborador
 							// eslint-disable-next-line react/no-array-index-key
 							key={id}
+							aoFavoritar={aoFavoritar}
 							colaborador={colaborador}
 							corDeFundo={time.corSecundaria}
 							aoDeletar={() => deletaUser(id)}

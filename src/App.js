@@ -60,6 +60,7 @@ function App() {
 	const inicial = [
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'JULIANA AMOASEI',
 			cargo: 'Desenvolvedora de software e instrutora',
 			imagem:
@@ -68,6 +69,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'DANIEL ARTINE',
 			cargo: 'Engenheiro de Software na Stone Age',
 			imagem:
@@ -76,6 +78,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'GUILHERME LIMA',
 			cargo: 'Desenvolvedor Python e JavaScript na Alura',
 			imagem:
@@ -84,6 +87,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'PAULO SILVEIRA',
 			cargo: 'Hipster e CEO da Alura',
 			imagem:
@@ -92,6 +96,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'JULIANA AMOASEI',
 			cargo: 'Desenvolvedora de software e instrutora',
 			imagem:
@@ -107,6 +112,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'GUILHERME LIMA',
 			cargo: 'Desenvolvedor Python e JavaScript na Alura',
 			imagem:
@@ -115,6 +121,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'PAULO SILVEIRA',
 			cargo: 'Hipster e CEO da Alura',
 			imagem:
@@ -123,6 +130,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'JULIANA AMOASEI',
 			cargo: 'Desenvolvedora de software e instrutora',
 			imagem:
@@ -131,6 +139,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'DANIEL ARTINE',
 			cargo: 'Engenheiro de Software na Stone Age',
 			imagem:
@@ -139,6 +148,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'GUILHERME LIMA',
 			cargo: 'Desenvolvedor Python e JavaScript na Alura',
 			imagem:
@@ -147,6 +157,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'PAULO SILVEIRA',
 			cargo: 'Hipster e CEO da Alura',
 			imagem:
@@ -155,6 +166,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'JULIANA AMOASEI',
 			cargo: 'Desenvolvedora de software e instrutora',
 			imagem:
@@ -163,6 +175,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'DANIEL ARTINE',
 			cargo: 'Engenheiro de Software na Stone Age',
 			imagem:
@@ -171,6 +184,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'GUILHERME LIMA',
 			cargo: 'Desenvolvedor Python e JavaScript na Alura',
 			imagem:
@@ -179,6 +193,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'PAULO SILVEIRA',
 			cargo: 'Hipster e CEO da Alura',
 			imagem:
@@ -187,6 +202,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'JULIANA AMOASEI',
 			cargo: 'Desenvolvedora de software e instrutora',
 			imagem:
@@ -195,6 +211,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'DANIEL ARTINE',
 			cargo: 'Engenheiro de Software na Stone Age',
 			imagem:
@@ -203,6 +220,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'GUILHERME LIMA',
 			cargo: 'Desenvolvedor Python e JavaScript na Alura',
 			imagem:
@@ -211,6 +229,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'PAULO SILVEIRA',
 			cargo: 'Hipster e CEO da Alura',
 			imagem:
@@ -219,6 +238,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'JULIANA AMOASEI',
 			cargo: 'Desenvolvedora de software e instrutora',
 			imagem:
@@ -227,6 +247,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'DANIEL ARTINE',
 			cargo: 'Engenheiro de Software na Stone Age',
 			imagem:
@@ -235,6 +256,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'GUILHERME LIMA',
 			cargo: 'Desenvolvedor Python e JavaScript na Alura',
 			imagem:
@@ -243,6 +265,7 @@ function App() {
 		},
 		{
 			id: uuidv4(),
+			favorito: false,
 			nome: 'PAULO SILVEIRA',
 			cargo: 'Hipster e CEO da Alura',
 			imagem:
@@ -270,10 +293,14 @@ function App() {
 
 	const deletaUser = function deletaUser(id) {
 		setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
-
-
-
 	};
+
+	function colaboradoresFavoritos(id){
+			setColaboradores(colaboradores.map((colaborador) => {
+				if(colaborador.id === id) colaborador.favorito = !colaborador.favorito
+				return colaborador
+			}))
+	}
 
 	return (
 		<div>
@@ -289,6 +316,7 @@ function App() {
 				<h1>Minha organização</h1>
 				{times.map((time, indice) => (
 					<Time
+						aoFavoritar={colaboradoresFavoritos}
 						deletaUser={deletaUser}
 						mudarCor={mudarCorDoTime}
 						key={indice}
