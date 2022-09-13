@@ -25,6 +25,11 @@ const Formulario = ({ aoCadastrar, times, CadastrarTime }) => {
 			imagem,
 			time,
 		});
+
+		setNome('');
+		setCargo('');
+		setImagem('');
+		setTime('');
 	};
 
 	return (
@@ -69,6 +74,8 @@ const Formulario = ({ aoCadastrar, times, CadastrarTime }) => {
 						cor: nomeCor,
 						corSecundaria: nomeCorSecundaria,
 					});
+
+					setNomeTime('');
 				}}
 			>
 				<h2>Preencha os dados para criar um novo time</h2>
