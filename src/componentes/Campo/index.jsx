@@ -9,11 +9,13 @@ const CampoTexto = ({
 	valor,
 	aoAlterado,
 	obrigatorio = false,
+	type = 'text',
 }) => {
 	return (
-		<div className="campo-texto">
+		<div className={`campo-texto  campo-${type}`}>
 			<label>{label}</label>
 			<input
+				type={type}
 				value={valor}
 				onChange={(evento) => aoAlterado(evento.target.value)}
 				required={obrigatorio}

@@ -10,6 +10,7 @@ import Formulario from './componentes/Formulario';
 import Rodape from './componentes/Rodape';
 import Time from './componentes/Time';
 
+
 function App() {
 	const [times, setTimes] = useState([
 		{
@@ -262,12 +263,17 @@ function App() {
 		}))
 	}
 
-	const CadastrarTime = function CadastrarTime(novoTime) {
-		return(
-			console.log(`${novoTime} cadastrado com sucesso`),
-			setTimes([...times,{...novoTime, id: uuidv4()} ])
-		)
+	const CadastrarTime = function CadastrarTime({nome, cor, corSecundaria}) {
+			return setTimes([...times,{nome, cor, corSecundaria, id: uuidv4()} ])
+
 	}
+
+	const deletaUser = function deletaUser(id) {
+		setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id))
+
+
+
+	};
 
 	return (
 		<div>
@@ -283,6 +289,7 @@ function App() {
 				<h1>Minha organização</h1>
 				{times.map((time, indice) => (
 					<Time
+						deletaUser={deletaUser}
 						mudarCor={mudarCorDoTime}
 						key={indice}
 						time={time}

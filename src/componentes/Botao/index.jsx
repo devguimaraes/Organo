@@ -2,7 +2,7 @@ import './botao.css';
 
 function Botao({ texto }) {
 	return (
-		<button type="button" className="botao">
+		<button type="submit" className="botao">
 			{texto}
 		</button>
 	);

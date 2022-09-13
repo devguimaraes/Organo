@@ -4,16 +4,7 @@
 import Colaborador from '../Colaborador';
 import './time.css';
 
-function Time({ time, colaboradores, mudarCor }) {
-	const deletaUser = function deletaUser(param) {
-		const colaboradoDeletado = [param];
-		/* const deletado = colaboradores.splice(
-			colaboradores.indexOf(colaboradoDeletado),
-			1
-		); */
-
-		console.log(colaboradoDeletado);
-	};
+function Time({ time, colaboradores, mudarCor, deletaUser }) {
 	return (
 		colaboradores.length > 0 && (
 			<section
@@ -37,7 +28,7 @@ function Time({ time, colaboradores, mudarCor }) {
 							key={id}
 							colaborador={colaborador}
 							corDeFundo={time.corSecundaria}
-							aoDeletar={() => deletaUser(colaborador)}
+							aoDeletar={() => deletaUser(id)}
 						/>
 					))}
 				</div>

@@ -13,11 +13,11 @@ function ListaSuspensa({
 		<div className="lista-suspensa">
 			<label>{label}</label>
 			<select
+				key={items}
 				required={obrigatorio}
 				value={valor}
 				onChange={(evento) => aoAlterado(evento.target.value)}
 			>
-				<option />
 				{items.map((item) => (
 					<option key={item}>{item}</option>
 				))}

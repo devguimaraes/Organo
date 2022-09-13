@@ -2,7 +2,7 @@
 /* eslint-disable react/function-component-definition */
 import { useState } from 'react';
 import Botao from '../Botao';
-import CampoTexto from '../CampoTexto';
+import CampoTexto from '../Campo';
 import ListaSuspensa from '../ListaSuspensa';
 import './formulario.css';
 
@@ -63,8 +63,12 @@ const Formulario = ({ aoCadastrar, times, CadastrarTime }) => {
 				className="formulario"
 				onSubmit={(evento) => {
 					evento.preventDefault();
-					console.log('time cadastrado');
-					CadastrarTime({ nomeTime, nomeCor, nomeCorSecundaria });
+
+					CadastrarTime({
+						nome: nomeTime,
+						cor: nomeCor,
+						corSecundaria: nomeCorSecundaria,
+					});
 				}}
 			>
 				<h2>Preencha os dados para criar um novo time</h2>
@@ -77,17 +81,14 @@ const Formulario = ({ aoCadastrar, times, CadastrarTime }) => {
 				/>
 				<CampoTexto
 					obrigatorio
+					type="color"
 					label="Cor de Time"
-					placeholder="Digite a cor primaria"
+					placeholder="Cor primaria em HEXADECIMAL"
 					valor={nomeCor}
-					aoAlterado={(valor) => setCorTime(valor)}
-				/>
-				<CampoTexto
-					obrigatorio
-					label="Cor Secundaria do Time"
-					placeholder="Digite a cor secundaria"
-					valor={nomeCorSecundaria}
-					aoAlterado={(valor) => setCorTimeSecundaria(valor)}
+					aoAlterado={(valor) => {
+						setCorTime(valor);
+						setCorTimeSecundaria(valor);
+					}}
 				/>
 
 				<Botao texto="Criar novo Time" />
